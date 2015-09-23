@@ -42,4 +42,8 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
         });
     }
 
-}]);
+}])
+
+.controller('AboutController', function(){
+  
+});

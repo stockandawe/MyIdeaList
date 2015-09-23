@@ -30,10 +30,10 @@ angular.module('MyIdeaList', ['ionic','MyIdeaList.controllers','MyIdeaList.servi
             url:'/todo/show/:id',
             controller:'TodoShowController',
             templateUrl:'views/show-todo.html'
-        // }).state('upvoteTodo',{
-        //     url:'/todo/show/:id',
-        //     controller:'TodoUpVoteController',
-        //     templateUrl:'views/show-todo.html'
+        }).state('aboutTodo',{
+            url:'/about',
+            controller:'AboutController',
+            templateUrl:'views/about.html'
         }).state('editTodo',{
             url:'/todo/edit/:id/:title',
             controller:'TodoEditController',
