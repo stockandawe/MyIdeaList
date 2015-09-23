@@ -14,7 +14,11 @@
                   href="#/todo/show/{{item.objectId}}">
             <h2>{{item.title}}</h2>
             <p class="subdued">
-              {{item.votes}} votes
+              <ng-pluralize count="item.votes"
+                when="{'0': 'No votes',
+                       'one': '1 vote',
+                       'other': '{} votes'}">
+              </ng-pluralize>
             </p>
             <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
