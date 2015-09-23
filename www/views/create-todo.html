@@ -1,0 +1,26 @@
+<ion-header-bar class="bar-positive">
+    <div class="buttons">
+        <button class="button" ui-sref="todos">Back</button>
+        <h1 class="title">Add A New Idea</h1>
+    </div>
+</ion-header-bar>
+
+<ion-content>
+    <div>
+        <ion-list>
+            <li class="item item-input item-stacked-label">
+                <textarea type="text" placeholder="What's this idea?" name="title" rows="1" ng-model="todo.title" required></textarea>
+            </li>
+            <li class="item item-input item-stacked-label">
+                <textarea type="text" placeholder="Describe the idea briefly (optional)" name="description" rows="10" ng-model="todo.description"></textarea>
+            </li>
+            <li class="item item-input item-stacked-label">
+                <textarea type="text" placeholder="URL (optional)" name="url" rows="1" ng-model="todo.url"></textarea>
+            </li>
+
+            <ion-button class="button button-block button-positive" ng-click="create()">
+                Add
+            </ion-button>
+        </ion-list>
+    </div>
+</ion-content>

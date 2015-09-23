@@ -1,0 +1,22 @@
+<ion-header-bar class="bar-positive">
+    <div class="buttons">
+        <h1 class="title">Rutul's Idea List</h1>
+        <button class="button" ui-sref="createTodo">New</button>
+    </div>
+</ion-header-bar>
+
+<ion-content>
+    <ion-list>
+        <ion-item class="item-icon-right"
+                  ng-repeat="item in items | orderBy: '-votes'"
+                  type="item-text-wrap"
+                  item="item"
+                  href="#/todo/show/{{item.objectId}}">
+            <h2>{{item.title}}</h2>
+            <p class="subdued">
+              {{item.votes}} votes
+            </p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </ion-list>
+</ion-content>

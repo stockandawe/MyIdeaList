@@ -1,0 +1,24 @@
+<ion-view view-title="{{todo.title}}">
+  <div class="list card">
+    <div class="item">
+      <h2>{{todo.title}}</h2>
+      <p>{{todo.createdAt | date:'dd.MM.yyyy HH:mm'}}</p>
+    </div>
+
+    <div class="item item-body">
+      <p>
+        {{todo.description}}
+      </p>
+      <p class="subdued">
+        {{todo.votes}} votes
+      </p>
+    </div>
+
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" ng-click="upvote()">
+        <i class="icon ion-thumbsup"></i>
+        Vote if you like this idea
+      </a>
+    </div>
+  </div>
+</ion-view>
