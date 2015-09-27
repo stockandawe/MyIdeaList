@@ -1,13 +1,28 @@
-<ion-header-bar class="bar-positive">
-    <h1 class="title">Rutul's Idea List</h1>
-    <div class="buttons">
-      <button class="button button-clear" ui-sref="aboutTodo">About</button>
-    </div>
-</ion-header-bar>
+<ion-view view-title="Rutul's Idea List">
+  <ion-header-bar class="bar-positive">
+      <h1 class="title">Rutul's Idea List</h1>
+      <div class="buttons">
+        <button class="button button-clear" ui-sref="aboutTodo">About</button>
+      </div>
+  </ion-header-bar>
 
-<ion-content>
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        <h3>{{thankYou}}</h3>
+      </div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="email" placeholder="Email" ng-model="todo.email" required>
+        </label>
+        <button class="button button-small button-positive" ng-click="addEmail()">
+          Send me updates
+        </button>
+      </div>
+    </div>
+
     <ion-list>
-        <ion-item class="item-icon-right"
+        <ion-item class="item-icon-right item-text-wrap"
                   ng-repeat="item in items | orderBy: '-votes'"
                   type="item-text-wrap"
                   item="item"
@@ -23,4 +38,5 @@
             <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>
     </ion-list>
-</ion-content>
+  </ion-content>
+</ion-view>

@@ -45,6 +45,15 @@ angular.module('MyIdeaList.services',[]).factory('Todo',['$http','PARSE_CREDENTI
                     'Content-Type':'application/json'
                 }
             });
+        },
+        addEmailAddress:function(data){
+            return $http.post('https://api.parse.com/1/classes/MailingList',data,{
+                headers:{
+                    'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                    'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
+                    'Content-Type':'application/json'
+                }
+            });
         }
     }
 }]).value('PARSE_CREDENTIALS',{

@@ -7,6 +7,18 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
         $scope.items=data.results;
     });
 
+    $scope.todo={};
+    $scope.thankYou = "Do you want exclusive access to my progress on these ideas?";
+    $scope.addEmail=function() {
+      Todo
+        .addEmailAddress({email:$scope.todo.email})
+        .success(function(data){
+          $scope.thankYou = "Thanks! I will share with you updates on the popular ideas and my progress on it.";
+          $scope.todo.email = '';
+        });
+
+    }
+
 }]).controller('TodoCreationController',['$scope','Todo','$state',function($scope,Todo,$state){
 
     $scope.todo={};
@@ -45,5 +57,5 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
 }])
 
 .controller('AboutController', function(){
-  
+
 });
