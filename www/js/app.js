@@ -15,28 +15,68 @@ angular.module('MyIdeaList', ['ionic','MyIdeaList.controllers','MyIdeaList.servi
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-    $state.go('todos');
+    $state.go('tab.todos');
   });
 }).config(function($stateProvider){
-        $stateProvider.state('todos',{
-           url:'/todos',
-           controller:'TodoListController',
-           templateUrl:'views/todos.html'
-        }).state('createTodo',{
+      $stateProvider
+      // setup an abstract state for the tabs directive
+        .state('tab', {
+          url: '/tab',
+          abstract: true,
+          templateUrl: 'views/tabs.html'
+        })
+        // Each tab has its own nav history stack:
+        .state('tab.todos', {
+          url: '/todos',
+          views: {
+            'tab-todos': {
+              templateUrl: 'views/todos.html',
+              controller: 'TodoListController'
+            }
+          }
+        })
+        // .state('showTodo', {
+        //   url: '/todo/show/:id',
+        //   views: {
+        //     'showTodo': {
+        //       templateUrl: 'views/show-todo.html',
+        //       controller: 'TodoShowController'
+        //     }
+        //   }
+        // })
+
+        // .state('todos',{
+        //    url:'/todos',
+        //    controller:'TodoListController',
+        //    templateUrl:'views/todos.html'
+        .state('createTodo',{
             url:'/todo/new',
             controller:'TodoCreationController',
             templateUrl:'views/create-todo.html'
-        }).state('showTodo',{
+        })
+        .state('showTodo',{
             url:'/todo/show/:id',
             controller:'TodoShowController',
             templateUrl:'views/show-todo.html'
-        }).state('aboutTodo',{
+        })
+        .state('aboutTodo',{
             url:'/about',
             controller:'AboutController',
             templateUrl:'views/about.html'
-        }).state('editTodo',{
+        })
+        .state('tab.about', {
+          url: '/about',
+          views: {
+            'about': {
+              templateUrl:'views/about.html',
+              controller:'AboutController'
+            }
+          }
+        })
+        .state('editTodo',{
             url:'/todo/edit/:id/:title',
             controller:'TodoEditController',
             templateUrl:'views/edit-todo.html'
         });
+
 });

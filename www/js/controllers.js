@@ -27,7 +27,7 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
         Todo
           .create({title:$scope.todo.title, description:$scope.todo.description, url:$scope.todo.url, votes:1})
           .success(function(data){
-            $state.go('todos');
+            $state.go('tab.todos');
           });
     }
 
@@ -37,7 +37,7 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
 
     $scope.edit=function(){
         Todo.edit($scope.todo.id,{title:$scope.todo.title}).success(function(data){
-            $state.go('todos');
+            $state.go('tab.todos');
         });
     }
 
@@ -50,7 +50,7 @@ angular.module('MyIdeaList.controllers',[]).controller('TodoListController',['$s
     $scope.upvote=function(){
         votes = $scope.todo.votes + 1;
         Todo.edit($stateParams.id,{votes:votes}).success(function(data){
-          $state.go('todos');
+          $state.go('tab.todos');
         });
     }
 
